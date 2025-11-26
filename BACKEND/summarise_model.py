@@ -4,7 +4,7 @@ import os
 
 class Assistant_summarise:
     def __init__(self, endpoint=None, deployment_name=None, api_key=None):
-        load_dotenv()
+        load_dotenv("BACKEND/.env")
         self.endpoint = "https://ia-michel.services.ai.azure.com/openai/v1/"
         self.deployment_name = deployment_name or "grok-4-fast-non-reasoning"
         self.api_key = api_key or os.environ.get('OPENAI_API_KEY')

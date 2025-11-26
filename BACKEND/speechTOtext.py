@@ -4,7 +4,7 @@ import os
 
 class WhisperTranscriber:
     def __init__(self, endpoint=None, api_key=None, model_name=None, language="fr"):
-        load_dotenv()
+        load_dotenv("BACKEND/.env")
         self.endpoint = endpoint or "https://ai-speech-michel.cognitiveservices.azure.com/openai/deployments/whisper/audio/transcriptions?api-version=2024-06-01"
         self.api_key = api_key or os.environ.get('WHISPER_API_KEY')
         self.model_name = model_name or "whisper (version:001)"
