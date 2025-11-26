@@ -1,2 +1,5 @@
-groq
+fastapi
+uvicorn
+requests
+python-dotenv
 openai
