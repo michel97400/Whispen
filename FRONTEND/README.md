@@ -1,16 +1,52 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Whispen
 
-Currently, two official plugins are available:
+> Application web pour la transcription et le résumé automatique d'audios.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Whispen permet d'uploader un fichier audio, d'obtenir sa transcription grâce à un modèle Whisper, puis de générer un résumé automatique avec l'API OpenAI. Le frontend est réalisé en React (Vite), le backend en FastAPI.
 
-## React Compiler
+## Fonctionnalités principales
+- Upload de fichiers audio (mp3, wav, etc.)
+- Transcription automatique (Whisper via Azure)
+- Résumé automatique (OpenAI via Azure)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Lancer le projet
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Prérequis
+- Node.js et npm (pour le frontend)
+- Python 3.10+ et pip (pour le backend)
+- Un fichier `BACKEND/.env` avec vos clés API (voir exemple dans le backend)
+
+### 2. Lancer le backend (API FastAPI)
+
+```bash
+cd ../BACKEND
+python -m venv .venv
+.venv\Scripts\activate  # Windows
+pip install -r requirements.txt
+uvicorn main:app --reload --port 8000
+```
+
+### 3. Lancer le frontend (React + Vite)
+
+```bash
+cd FRONTEND
+npm install
+npm run dev
+```
+
+Le frontend sera accessible sur http://localhost:5173 et communiquera avec l'API backend sur http://localhost:8000.
+
+---
+
+## Structure du projet
+
+- `FRONTEND/` : Application React (Vite)
+- `BACKEND/` : API FastAPI (transcription & résumé)
+
+---
+
+## Auteur
+Projet réalisé par Michel97400.
