@@ -12,12 +12,21 @@ Whispen permet d'uploader un fichier audio, d'obtenir sa transcription grâce à
 
 ---
 
+
 ## Lancer le projet
 
 ### 1. Prérequis
 - Node.js et npm (pour le frontend)
 - Python 3.10+ et pip (pour le backend)
-- Un fichier `BACKEND/.env` avec vos clés API (voir exemple dans le backend)
+- **Un fichier `BACKEND/.env` à créer avec vos clés API :**
+- Générer une clé api avec groq
+
+```env
+OPENAI_API_KEY = 'votre_clé_openai' -> model openai de groq (gpt-oss)
+WHISPER_API_KEY = 'votre_clé_whisper' -> clé azure model whisper
+```
+
+> Placez ce fichier dans le dossier `BACKEND/` (il ne doit pas être versionné dans git). Les noms des variables doivent être exactement ceux-ci : `OPENAI_API_KEY` et `WHISPER_API_KEY`.
 
 ### 2. Lancer le backend (API FastAPI)
 
